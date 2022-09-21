@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="open.js" /></script>
+	<script type="text/javascript" src="osm/osm_all.js" /></script>
+	<script type="text/javascript" src="osm/skipsToCode.js" /></script>
+	<script type="text/javascript" src="protoSurveyJSON.js" /></script>
+	<script type="text/javascript" src="main.js" /></script>
+	<script type="text/javascript">
+	window.addEventListener("load", function () {
+		 SM.WorksheetView.init(protoSurveyJSON);
+	});
+	</script>
+<style>
+      .optionsContainer {
+        display: flex;
+        flex-direction: row;
+        word-spacing: 3rem;
+        font-size: 2rem;
+        padding-bottom: 1rem;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+      .optionsSpacing {
+        word-spacing: 1rem;
+        display: flex;
+        flex-direction: row;
+        padding-left: 2rem;
+        /* margin-left: 50px; */
+        align-items: baseline;
+        word-spacing: 1rem;
+      }
+
+      p {
+        margin-left: 20px;
+      }
+      .table {
+        position: absolute;
+        top: 20;
+        bottom: 20;
+        left: 10;
+        right: 10;
+        width: 99%;
+        color: black;
+        font-size: 1.5rem;
+        border-collapse: collapse;
+        empty-cells: hide;
+        font-family: Arial, Helvetica, sans-serif;
+        margin-top: 20px;
+		empty-cells: hide;
+      }
+
+      .span1 {
+        border-bottom: 2px dotted black;
+        padding-right: 18%;
+        margin-right: 10%;
+        font-size: 1.3em;
+      }
+      .spanTitle {
+        font-size: 1.2em;
+      }
+
+      .fontSize {
+        font-weight: bold;
+        padding-right: 0.4rem;
+        margin-right: 0.7rem;
+        padding-top: 20px;
+      }
+      .largeFont {
+        font-size: 2rem;
+      }
+      .mediumFont {
+        font-size: 1.5rem;
+      }
+      .smallFont {
+        font-size: 1rem;
+      }
+      .fontColor {
+        font-weight: bold;
+        margin-right: 0.2rem;
+      }
+      .firstColor {
+        margin-left: 7rem;
+      }
+      .secondColor {
+        color: grey;
+      }
+      .line {
+        color: black;
+      }
+
+      .yellow {
+        border-bottom: 0.3rem solid #ffaa33;
+      }
+      .yellowBox {
+        border: 0.3rem solid #ffaa33;
+      }
+      #title {
+        font-weight: bold;
+        font-size: 1.8em;
+      }
+      /* .renderingAnswerDiv {
+        margin-left: 7rem;
+        margin-top: 10px;
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        top: 20px;
+      } */
+
+      .display {
+        display: flex;
+        flex-direction: column;
+      }
+      .tableViewContainer {
+        margin-left: 7rem;
+        display: flex;
+        flex-direction: row;
+        margin-top: 4px;
+      }
+      .table td {
+        width: 50%;
+        height: 2.1rem;
+      }
+      .miniTableOne {
+        empty-cells: show;
+        border-collapse: collapse;
+        height: 1.5rem;
+        width: 3rem;
+      }
+      .miniTableOne td {
+        border: 1px solid black;
+      }
+
+      .miniTableTwo {
+        empty-cells: show;
+        border-collapse: collapse;
+        height: 1rem;
+        width: 2.7rem;
+        padding: 1em;
+      }
+      .miniTableTwo td {
+        border: 1px solid black;
+      }
+      .miniTableThree {
+        empty-cells: show;
+        border-collapse: collapse;
+        height: 0.5rem;
+        width: 2.7rem;
+      }
+      .miniTableThree td {
+        border: 1px solid black;
+      }
+
+      .secondOptionButtonEffect {
+        visibility: hidden;
+      }
+      .thirdOptionButtonEffect {
+        display: none;
+      }
+      .innerDivForThirdOption {
+        padding: 5px;
+        margin-right: 1em;
+      }
+      .lines {
+        margin-right: 2rem;
+        padding: 3px;
+        padding-left: 14px;
+        padding-right: 15px;
+      }
+      .threeLines {
+        background-color: black;
+        height: 15px;
+        width: 10px;
+      }
+      .firstRender {
+        display: flex;
+        flex-direction: row;
+
+        align-items: center;
+        justify-content: center;
+      }
+      .secondRender {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .renderingAnswerDiv {
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        top: 20px;
+        left: 46rem;
+      }
+      .firstRenderingAnswerOption {
+        height: 40px;
+        width: 50px;
+
+        margin-right: 30px;
+        display: flex;
+        flex-direction: row;
+      }
+      .secondRenderingAnswerOption {
+        height: 45px;
+        width: 50px;
+
+        display: flex;
+        flex-direction: column;
+      }
+      .firstLines {
+        height: 30px;
+        width: 5px;
+        background-color: black;
+        margin-left: 10px;
+        margin-top: 3px;
+      }
+      .firstLine {
+        margin-left: 10px;
+      }
+      .secondLines {
+        height: 5px;
+        width: 40px;
+        background-color: black;
+        margin-left: 0px;
+        margin-top: 10px;
+      }
+      .secondLine {
+        margin-top: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="optionsContainer">
+      <div class="optionsSpacing">
+        <span class="fontSize largeFont">A</span>
+        <span class="fontSize mediumFont yellow">A</span>
+        <span class="fontSize smallFont">A</span>
+
+        <span class="fontColor firstColor yellow">A</span>
+        <span class="fontColor line">/</span>
+        <span class="fontColor secondColor">A</span>
+
+        <div class="tableViewContainer">
+          <div class="divForMiniTableOne innerDivForThirdOption yellowBox">
+            <table class="miniTableOne firstOption">
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+          </div>
+          <div class="divForMiniTableTwo innerDivForThirdOption">
+            <table class="miniTableTwo option secondOption">
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td colspan="2"></td>
+              </tr>
+            </table>
+          </div>
+          <div class="divForMiniTableThree innerDivForThirdOption">
+            <table class="miniTableThree option thirdOption">
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="renderingAnswerDiv">
+          <div class="firstRenderingAnswerOption lines yellowBox">
+            <div class="firstLines firstLine"></div>
+            <div class="firstLines"></div>
+            <div class="firstLines"></div>
+          </div>
+
+          <div class="secondRenderingAnswerOption lines">
+            <div class="secondLines secondLine"></div>
+            <div class="secondLines"></div>
+            <div class="secondLines"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <table class="table" id="table" border="2">
+      <thead>
+        <tr>
+          <td colspan="2" id="title">
+            <span class="spanTitle">Mystery Shop</span>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" style="font-weight: bold; word-spacing: 0%">
+            <span class="span1">Location:</span>
+            <span class="span1">Date:</span>
+            <span class="span1">Time:</span>
+          </td>
+        </tr>
+      </thead>
+    </table>
+
+</html>
